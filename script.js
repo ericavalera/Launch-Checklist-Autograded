@@ -3,7 +3,9 @@
 window.addEventListener("load", function() {
     let form = document.querySelector("form");
     form.addEventListener("submit", function(event){
-
+        //preventDefault() to prevent request from being sent out and the page reloading
+       
+        event.preventDefault();
         //DOM- Document object model declarations -input[name="etc"] is JQuery(?)
         let pilot = document.querySelector("input[name=pilotName]").value;
         let copilot = document.querySelector("input[name=copilotName]").value;
@@ -13,8 +15,7 @@ window.addEventListener("load", function() {
 
         formSubmission(document,list,pilot,copilot,fuelLevel,cargoLevel);
 
-        //preventDefault() to prevent request from being sent out and the page reloading
-        event.preventDefault();
+        
     });
 
     let listedPlanets;
