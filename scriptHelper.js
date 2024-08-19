@@ -16,7 +16,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     
    
  };
- 
+ //Helps formSubmission to validate entries on form
  function validateInput(testInput) {
     if(testInput === ""){
         return "Empty";
@@ -26,7 +26,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         return "Not a Number"
     }
  };
- 
+ //with the help of validateInput() is verifying submissions and changing the information on the page via the DOM
  function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     const pilotStatus = document.getElementById("pilotStatus");
     const copilotStatus = document.getElementById("copilotStatus");
@@ -38,10 +38,10 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         alert("All fields are required.");
         
     } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number"){
-        alert("No numbers are allowed in for pilot and co-pilot name.");
+        alert("No numbers are allowed for pilot and co-pilot name.");
         
     } else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number"){
-        alert("Only numbers allowed in cargo level and fuel level fields");   
+        alert("Only numbers allowed in cargo mass and fuel level fields");   
     }
     else{
         
@@ -82,7 +82,8 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
      };
     }
     };
- 
+
+ //fetching JSON information
  async function myFetch() {
      let planetsReturned;
  
@@ -92,7 +93,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  
      return planetsReturned;
  };
- 
+ //Randomly selects planet from JSON list
  function pickPlanet(planets) {
     let indexOfPlanets=  Math.floor(Math.random() * planets.length);
     return planets[indexOfPlanets];
